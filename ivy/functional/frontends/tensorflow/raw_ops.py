@@ -908,3 +908,18 @@ Imag.supported_dtypes = {
 
 
 MakeNdArray = map_raw_ops_alias(tf_frontend.make_ndarray)
+
+@to_ivy_arrays_and_back
+def Svd(*, input, full_matrices=False, compute_uv=True, name=None):
+    return ivy.svd(input, compute_uv=compute_uv, full_matrices=full_matrices)
+
+
+Svd.supported_dtypes = {
+    "tensorflow": (
+        "float64",
+        "float128",
+        "halfcomplex64",
+        "complex128",
+    ),
+}
+
